@@ -85,9 +85,9 @@ function cadastrar_alergia(cod_animal) {
         data: JSON.stringify(markers),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (data) { alert("Cadastro de alergia concluída com sucesso"); },
+        success: function (data) { sucesso_cadastro(); },
         failure: function (errMsg) {
-            alert("Não foi possível fazer o cadastro da alergia");
+            erro_cadastro();
         }
     });
 }
@@ -96,7 +96,6 @@ function cadastrar_alergia(cod_animal) {
 //DELETAR ALERGIA
 function deletarAlergia(cod_alergia) {
     var cod = cod_alergia;
-    alert(cod);
     $.ajax(
         {
             dataType: 'json',
@@ -107,10 +106,10 @@ function deletarAlergia(cod_alergia) {
             type: 'DELETE',
             url: 'http://localhost/git1/alergia/' + cod,
             success: function (data) {
-                alert("Higiene deletada");
+                sucesso_delete();
             },
             error: function (data) {
-                alert("error");
+                erro_delete();
             }
         });
 }

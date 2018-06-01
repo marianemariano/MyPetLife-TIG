@@ -12,8 +12,6 @@
                     <th scope="col">Nome da cirurgia</th>
                     <th scope="col">Data</th>
                     <th scope="col">Complicações</th>
-                    <th scope="col">Local</th>
-                    <th scope="col">Médico</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Cuidados</th>
                     <th scope="col">Observações</th>
@@ -24,6 +22,9 @@
 
             </tbody>
         </table>
+        <div id="msg_delete">
+
+        </div>
         <button class="btn btn-success btn-sm ml-2 mb-5" data-toggle="collapse" data-target="#collapseExample">Adicionar nova cirurgia</button>
         <div class="collapse" id="collapseExample">
             <div class="card card-body">
@@ -54,7 +55,7 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label for="inputPassword4">Valor</label>
-                            <input type="number" class="form-control" id="valor_cicurgia">
+                            <input type="number" class="form-control" id="valor_cirurgia">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="inputEmail4">Cuidados</label>
@@ -66,6 +67,9 @@
                         </div>
                     </div>
                     </form>
+                    <div id="msg_cadastro">
+
+                    </div>
                     <button type="submit" class="btn btn-primary" id="cadastrarCirurgia" onclick="cadastrarCirurgia('minhaVariavel')">Cadastrar</button>
                 </div>
             </div>

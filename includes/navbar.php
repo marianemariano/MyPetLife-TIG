@@ -22,7 +22,6 @@
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="medicamento('minhaVariavel');">Medicamento</a>
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="alergia('minhaVariavel');">Alergia</a>
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="cirurgia('minhaVariavel');">Cirurgia</a>
-                    <a class="nav-item nav-link" href="javascript:void(0)" onclick="local('minhaVariavel');">Local</a>
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="pulgas('minhaVariavel');">Pulgas e vermifugos</a>
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="medico('minhaVariavel');">Medico</a>
                 </div>

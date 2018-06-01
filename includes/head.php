@@ -9,6 +9,11 @@
 
     <title>MyPetLife</title>
     <style>
+        #msg_delete{
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+        
         .nav-item {
             color: #1976d2 !important;
         }

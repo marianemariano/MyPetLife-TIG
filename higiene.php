@@ -20,6 +20,9 @@
 
             </tbody>
         </table>
+        <div id="msg_delete">
+
+        </div>
         <button class="btn btn-success btn-sm ml-2 mb-5" data-toggle="collapse" data-target="#collapseExample">Adicionar novo exame</button>
         <div class="collapse" id="collapseExample">
             <div class="card card-body">
@@ -44,6 +47,9 @@
                             <input type="text" class="form-control" id="obs_higiene">
                         </div>
                     </form>
+                    <div id="msg_cadastro">
+                        
+                    </div>
                     <button type="submit" class="btn btn-primary" id="cadastrarhigiene" onclick="cadastrarHigiene('minhaVariavel')">Cadastrar</button>
                 </div>
             </div>

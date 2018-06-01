@@ -34,7 +34,7 @@ function listarMedicamento(cod_animal) {
                     // Listando cada cliente encontrado na lista
                     $.each(clientes, function (i, cliente) {
                         if (cod_animal == cliente.cod_animal) {
-                            var item = "<tr><td>" + cliente.nome + "</td> <td>" + cliente.dosagem + "</td> <td>" + cliente.data_inicio + "</td> <td>" + cliente.data_fim + "</td> <td>" + cliente.repeticoes + "</td> <td>" + cliente.instrucao + "</td> <td>" + cliente.condicao + "</td> <td><button type='button' class='btn btn-primary btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Observações</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.observacao + "</p></div></td></td><td><button class='btn btn-danger btn-sm' onclick='deletarHigiene("+cliente.cod_medicamento+")'>Deletar</button></td></tr>";
+                            var item = "<tr><td>" + cliente.nome + "</td> <td>" + cliente.dosagem + "</td> <td>" + cliente.data_inicio + "</td> <td>" + cliente.data_fim + "</td> <td>" + cliente.repeticoes + "</td> <td>" + cliente.instrucao + "</td> <td>" + cliente.condicao + "</td> <td><button type='button' class='btn btn-primary btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Observações</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.observacao + "</p></div></td></td><td><button class='btn btn-danger btn-sm' onclick='deletarMedicamento("+cliente.cod_medicamento+")'>Deletar</button></td></tr>";
                             $("#medicamento").append(item);
                         }
                     });
@@ -86,9 +86,11 @@ function cadastrar_medicamento(cod_animal) {
         data: JSON.stringify(markers),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (data) { alert("Cadastro de medicamento concluído com sucesso"); },
+        success: function (data) { 
+            sucesso_cadastro();
+        },
         failure: function (errMsg) {
-            alert("Não foi possível fazer o cadastro do medicamento");
+            erro_cadastro();
         }
     });
 }
@@ -96,9 +98,8 @@ function cadastrar_medicamento(cod_animal) {
 
 
 //DELETAR MEDICAMENTO NO BANCO
-function deletarHigiene(cod_medicamento) {
+function deletarMedicamento(cod_medicamento) {
     var cod = cod_medicamento;
-    alert(cod);
     $.ajax(
         {
             dataType: 'json',
@@ -109,10 +110,10 @@ function deletarHigiene(cod_medicamento) {
             type: 'DELETE',
             url: 'http://localhost/git1/medicamento/' + cod,
             success: function (data) {
-                alert("Higiene deletada");
+                sucesso_delete();
             },
             error: function (data) {
-                alert("error");
+                erro_delete();
             }
         });
 }

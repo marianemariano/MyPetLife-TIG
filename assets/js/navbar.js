@@ -165,6 +165,30 @@ function medico(cod_animal) {
 
 }
 
+function refresh() {
+    window.location.reload();
+}
+
+function sucesso_cadastro() {
+    var sucesso = "<div class='alert alert-success' role='alert'>Cadastrado com sucesso! <a href='javascript:void(0)' onclick='refresh();'>Clique aqui para atualizar a tela</a></div>";
+    $("#msg_cadastro").append(sucesso);
+}
+
+function erro_cadastro() {
+    var error = "<div class='alert alert-danger' role='alert'>Não foi possível realizar o cadastro!</div>";
+    $("#msg_cadastro").append(error);
+}
+
+function sucesso_delete() {
+    var sucesso = "<div class='alert alert-success' role='alert'>Deletado com sucesso! <a href='javascript:void(0)' onclick='refresh();'>Clique aqui para atualizar a tela</a></div>";
+    $("#msg_delete").append(sucesso);
+
+}
+
+function erro_delete(){
+    var error = "<div class='alert alert-danger' role='alert'>Não foi possível deletar este item!</div>";
+    $("#msg_delete").append(error);
+}
 
 
 

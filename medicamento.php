@@ -24,6 +24,9 @@
 
             </tbody>
         </table>
+        <div id="msg_delete">
+            <!-- MENSAGEM DE RETORNO DO DELETE -->
+        </div>
         <button class="btn btn-success btn-sm ml-2 mb-5" data-toggle="collapse" data-target="#collapseExample">Adicionar novo medicamento</button>
         <div class="collapse" id="collapseExample">
             <div class="card card-body">
@@ -50,7 +53,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="inputEmail4">Repetições</label>
-                                <input type="text" class="form-control" id="repeticoes_medicamento">
+                                <input type="number" class="form-control" id="repeticoes_medicamento">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="inputPassword4">Instruções</label>
@@ -66,6 +69,9 @@
                             </div>
                         </div>
                     </form>
+                    <div id="msg_cadastro">
+                        <!-- MENSAGEM DE RETORNO DO CADASTRO -->
+                    </div>
                     <button type="submit" class="btn btn-primary" id="cadastrarmedicmento" onclick="cadastrarMedicamento('minhaVariavel');">Cadastrar</button>
                 </div>
             </div>

@@ -34,13 +34,13 @@ function listarConsulta(cod_animal) {
                     // Listando cada cliente encontrado na lista
                     $.each(clientes, function (i, cliente) {
                         if (cod_animal == cliente.cod_animal) {
-                            var item = "<tr><td>" + cliente.motivo + "</td> <td>" + cliente.data_ida + "</td> <td>" + cliente.data_volta + "</td> <td>" + cliente.local + "</td> <td>" + cliente.medico + "</td> <td>" + cliente.valor + "<td><button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Observações</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.observacao + "</p></div></td> <td><button class='btn btn danger' onclick='deletarConsulta(" + cliente.cod_consulta + ")'>Deletar</button></td></tr>";
+                            var item = "<tr><td>" + cliente.motivo + "</td><td><button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Diagnóstico</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.diagnostico + "</p></div></td> <td>" + cliente.data_ida + "</td> <td>" + cliente.data_volta + "</td> <td>" + cliente.valor + "<td><button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Observações</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.observacao + "</p></div></td> <td><button class='btn btn-danger' onclick='deletarConsulta(" + cliente.cod_consulta + ")'>Deletar</button></td></tr>";
                             $("#informacoes").append(item);
                         }
                     });
                 },
                 error: function (data) {
-                    alert("error");
+                    alert("Não foi possível carregar as consultas");
                 }
             });
     });
@@ -84,9 +84,13 @@ function cadastrar_consulta(cod_animal) {
         data: JSON.stringify(markers),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (data) { alert("consulta cadastrada com sucesso"); },
+        success: function (data) {
+            var sucesso = "<div class='alert alert-success' role='alert'>Cadastro realizado com sucesso. <a href='javascript:void(0)' onclick='refresh();'>Clique aqui para atualizar a tela</a></div>";
+            $("#msg_consulta").append(sucesso);
+        },
         failure: function (errMsg) {
-            alert("Não foi possível cadastrar uma nova consulta!");
+            var error = "<div class='alert alert-danger' role='alert'>Não foi possível cadastrar uma nova consulta</div>";
+            $("#msg_consulta").append(error);
         }
     });
 }
@@ -96,7 +100,6 @@ function cadastrar_consulta(cod_animal) {
 //DELETAR CONSULTAS NO BANCO
 function deletarConsulta(cod_consulta) {
     var cod = cod_consulta;
-    alert(cod);
     $.ajax(
         {
             dataType: 'json',
@@ -107,10 +110,12 @@ function deletarConsulta(cod_consulta) {
             type: 'DELETE',
             url: 'http://localhost/git1/consulta/' + cod,
             success: function (data) {
-                alert("Consulta deletada");
+                var sucesso = "<div class='alert alert-success' role='alert'>Deletado com sucesso! <a href='javascript:void(0)' onclick='refresh();'>Clique aqui para atualizar a tela</a></div>";
+                $("#delete_consulta").append(sucesso);
             },
             error: function (data) {
-                alert("error");
+                var error = "<div class='alert alert-danger' role='alert'>Não foi possível deletar este item!</div>";
+                $("#delete_consulta").append(error);
             }
         });
 }
@@ -154,7 +159,7 @@ function listarVacinas(cod_animal) {
                     // Listando cada cliente encontrado na lista
                     $.each(clientes, function (i, cliente) {
                         if (cod_animal == cliente.cod_animal) {
-                            var item = "<tr><td>" + cliente.nome + "</td> <td>" + cliente.data_aplicacao + "</td> <td>" + cliente.data_reaplicacao + "</td> </td> <td><button type='button' class='btn btn-primary btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Observações</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.observacao + "</p></div></td> </td><td><button class='btn btn-danger btn-sm' onclick='deletarVacina(" + cliente.cod_vacina + ");'>Deletar animal</button></td></tr>";
+                            var item = "<tr><td>" + cliente.nome + "</td> <td>" + cliente.data_aplicacao + "</td> <td>" + cliente.data_reaplicacao + "</td> </td> <td><button type='button' class='btn btn-primary btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Observações</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.observacao + "</p></div></td> </td><td><button class='btn btn-danger btn-sm' onclick='deletarVacina(" + cliente.cod_vacina + ");'>Deletar</button></td></tr>";
                             $("#vacina").append(item);
                         }
                     });
@@ -201,9 +206,13 @@ function cadastrar_vacina(cod_animal) {
         data: JSON.stringify(markers),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (data) { alert("Vacina cadastrada com sucesso"); },
+        success: function (data) {
+            var sucesso = "<div class='alert alert-success' role='alert'>Cadastro realizado com sucesso. <a href='javascript:void(0)' onclick='refresh();'>Clique aqui para atualizar a tela</a></div>";
+            $("#msg_vacina").append(sucesso);
+        },
         failure: function (errMsg) {
-            alert("Não foi possível cadastrar uma nova vacina!");
+            var error = "<div class='alert alert-success' role='alert'>Erro ao cadastrar</div>";
+            $("#msg_vacina").append(error);
         }
     });
 }
@@ -213,7 +222,6 @@ function cadastrar_vacina(cod_animal) {
 //DELETAR VACINA
 function deletarVacina(cod_consulta) {
     var cod = cod_consulta;
-    alert(cod);
     $.ajax(
         {
             dataType: 'json',
@@ -224,10 +232,12 @@ function deletarVacina(cod_consulta) {
             type: 'DELETE',
             url: 'http://localhost/git1/vacina/' + cod,
             success: function (data) {
-                alert("Vacina deletada");
+                var sucesso = "<div class='alert alert-success' role='alert'>Deletado com sucesso! <a href='javascript:void(0)' onclick='refresh();'>Clique aqui para atualizar a tela</a></div>";
+                $("#delete_vacina").append(sucesso);
             },
             error: function (data) {
-                alert("error");
+                var error = "<div class='alert alert-danger' role='alert'>Não foi possível deletar este item!</div>";
+                $("#delete_vacina").append(error);
             }
         });
 }
@@ -272,7 +282,7 @@ function listarExames(cod_animal) {
                     // Listando cada cliente encontrado na lista
                     $.each(clientes, function (i, cliente) {
                         if (cod_animal == cliente.cod_animal) {
-                            var item = "<tr><td>" + cliente.nome + "</td> <td>" + cliente.data + "</td> <td>" + cliente.local + "</td> <td>" + cliente.medico + "</td> <td><button type='button' class='btn btn-primary btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Diagnostico</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.diagnostico + "</p></div></td> <td><button type='button' class='btn btn-primary btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Observações</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.observacao + "</p></div></td><td><button class='btn btn-danger btn-sm' onclick='deletarExame(" + cliente.cod_exame + ")'>Deletar animal</button></td></tr>";
+                            var item = "<tr><td>" + cliente.nome + "</td> <td>" + cliente.data + "</td> <td>" + cliente.local + "</td> <td><button type='button' class='btn btn-primary btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Diagnostico</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.diagnostico + "</p></div></td> <td><button type='button' class='btn btn-primary btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Observações</button> <div class='dropdown-menu p-4 text-muted' style='max-width: 200px;'><p> " + cliente.observacao + "</p></div></td><td><button class='btn btn-danger btn-sm' onclick='deletarExame(" + cliente.cod_exame + ")'>Deletar animal</button></td></tr>";
                             $("#exames").append(item);
                         }
                     });
@@ -322,9 +332,13 @@ function cadastrar_exames(cod_animal) {
         data: JSON.stringify(markers),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (data) { alert("Exame cadastrado com sucesso"); },
+        success: function (data) {
+            var sucesso = "<div class='alert alert-success' role='alert'>Cadastrado com sucesso! <a href='javascript:void(0)' onclick='refresh();'>Clique aqui para atualizar a tela</a></div>";
+            $("#msg_exame").append(sucesso);
+        },
         failure: function (errMsg) {
-            alert("Não foi possível cadastrar um novo exame!");
+            var error = "<div class='alert alert-danger' role='alert'>Não foi possível realizar o cadastro!</div>";
+            $("#msg_exame").append(error);
         }
     });
 }
@@ -334,7 +348,6 @@ function cadastrar_exames(cod_animal) {
 //DELETAR EXAME
 function deletarExame(cod_consulta) {
     var cod = cod_consulta;
-    alert(cod);
     $.ajax(
         {
             dataType: 'json',
@@ -345,10 +358,12 @@ function deletarExame(cod_consulta) {
             type: 'DELETE',
             url: 'http://localhost/git1/exames/' + cod,
             success: function (data) {
-                alert("Exame deletado");
+                var sucesso = "<div class='alert alert-success' role='alert'>Deletado com sucesso! <a href='javascript:void(0)' onclick='refresh();'>Clique aqui para atualizar a tela</a></div>";
+                $("#delete_exame").append(sucesso);
             },
             error: function (data) {
-                alert("error");
+                var error = "<div class='alert alert-danger' role='alert'>Não foi possível deletar este item!</div>";
+                $("#delete_exame").append(error);
             }
         });
 }

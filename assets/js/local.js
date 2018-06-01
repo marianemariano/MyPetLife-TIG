@@ -82,9 +82,9 @@ function cadastrar_local(cod_animal) {
         data: JSON.stringify(markers),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (data) { alert("Cadastro de local concluído com sucesso"); },
+        success: function (data) { sucesso_cadastro(); },
         failure: function (errMsg) {
-            alert("Não foi possível fazer o cadastro do local");
+            erro_cadastro();
         }
     });
 }
@@ -93,7 +93,6 @@ function cadastrar_local(cod_animal) {
 //DELETAR LOCAL
 function deletarLocal(cod_local) {
     var cod = cod_local;
-    alert(cod);
     $.ajax(
         {
             dataType: 'json',
@@ -104,10 +103,10 @@ function deletarLocal(cod_local) {
             type: 'DELETE',
             url: 'http://localhost/git1/local/' + cod,
             success: function (data) {
-                alert("Local deletado");
+                sucesso_delete();
             },
             error: function (data) {
-                alert("error");
+                erro_delete();
             }
         });
 }

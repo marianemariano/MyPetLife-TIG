@@ -124,5 +124,5 @@ function deleteanimal(cod_animal) {
 //SELECIONAR ANIMAL
 
 function selecionarAnimal(cod_dono){
-    window.location.replace("http://localhost/mypetlife/cve.html?minhaVariavel="+cod_dono);
+    window.location.replace("http://localhost/mypetlife/cve.php?minhaVariavel="+cod_dono);
 }

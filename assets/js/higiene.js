@@ -82,9 +82,9 @@ function cadastrar_higiene(cod_animal) {
         data: JSON.stringify(markers),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (data) { alert("Cadastro de higiene concluída com sucesso"); },
+        success: function (data) { sucesso_cadastro(); },
         failure: function (errMsg) {
-            alert("Não foi possível fazer o cadastro de higiene");
+            erro_cadastro();
         }
     });
 }
@@ -95,7 +95,6 @@ function cadastrar_higiene(cod_animal) {
 //DELETAR HIGIENE NO BANCO
 function deletarHigiene(cod_higiene) {
     var cod = cod_higiene;
-    alert(cod);
     $.ajax(
         {
             dataType: 'json',
@@ -106,10 +105,10 @@ function deletarHigiene(cod_higiene) {
             type: 'DELETE',
             url: 'http://localhost/git1/higiene/' + cod,
             success: function (data) {
-                alert("Higiene deletada");
+                sucesso_delete();
             },
             error: function (data) {
-                alert("error");
+                erro_delete();
             }
         });
 }

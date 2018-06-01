@@ -22,10 +22,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">Motivo</th>
+                                <th scope="col">Diagnóstico</th>
                                 <th scope="col">Data ida</th>
-                                <th scope="col">Data volta</th>
-                                <th scope="col">Local</th>
-                                <th scope="col">Medico</th>
+                                <th scope="col">Data volta</th>   
                                 <th scope="col">Valor</th>
                                 <th scope="col">Observação</th>
                                 <th scope="col">Deletar</th>
@@ -35,6 +34,9 @@
 
                         </tbody>
                     </table>
+                    <div style='margin: 0px 1% 0px 1%' id='delete_consulta'>
+                    
+                    </div>
                     <button class="btn btn-success btn-sm ml-2 mb-5" data-toggle="collapse" data-target="#collapseExample">Adicionar nova consulta</button>
                     <div class="collapse" id="collapseExample">
                         <div class="card card-body">
@@ -60,19 +62,18 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="inputAddress">Médico</label>
-                                            <input type="text" class="form-control" id="medico_consulta" placeholder="...">
+                                            <label for="inputAddress">Valor</label>
+                                            <input type="number" class="form-control" id="valor_consulta">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="inputAddress">valor</label>
-                                            <input type="text" class="form-control" id="valor_consulta" placeholder="100,00">
+                                            <label for="inputAddress">Observação</label>
+                                            <input type="text" class="form-control" id="obs_consulta">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Observação</label>
-                                        <input type="text" class="form-control" id="obs_consulta" placeholder="...">
-                                    </div>
                                 </form>
+                                <div id="msg_consulta">
+
+                                </div>
                                 <button type="submit" class="btn btn-primary" id="cadastraconsulta" onclick="cadastrarConsulta('minhaVariavel')">Cadastrar</button>
                             </div>
                         </div>
@@ -93,6 +94,9 @@
 
                         </tbody>
                     </table>
+                    <div style='margin: 0px 1% 0px 1%' id='delete_vacina'>
+                    
+                    </div>
                     <button class="btn btn-success btn-sm ml-2 mb-5" data-toggle="collapse" data-target="#collapseExample2">Adicionar nova vacina</button>
                     <div class="collapse" id="collapseExample2">
                         <div class="card card-body">
@@ -105,11 +109,11 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputPassword4">Data aplicação</label>
-                                            <input type="date" class="form-control" id="data_apliacao_vacina" placeholder="14/05/2018">
+                                            <input type="date" class="form-control" id="data_aplicacao_vacina" placeholder="14/05/2018">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputPassword4">Data reaplicação</label>
-                                            <input type="date" class="form-control" id="data_reapliacao_vacina" placeholder="14/05/2018">
+                                            <input type="date" class="form-control" id="data_reaplicacao_vacina" placeholder="14/05/2018">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -117,6 +121,9 @@
                                         <input type="text" class="form-control" id="obs_vacina" placeholder="...">
                                     </div>
                                 </form>
+                                <div id="msg_vacina">
+
+                                </div>
                                 <button type="submit" class="btn btn-primary" onclick="cadastrarVacina('minhaVariavel')" id="cadastrarvacina">Cadastrar</button>
                             </div>
                         </div>
@@ -138,6 +145,9 @@
 
                         </tbody>
                     </table>
+                    <div style='margin: 0px 1% 0px 1%' id='delete_exame'>
+                    
+                    </div>
                     <button class="btn btn-success btn-sm ml-2 mb-5" data-toggle="collapse" data-target="#collapseExample3">Adicionar novo exame</button>
                     <div class="collapse" id="collapseExample3">
                         <div class="card card-body">
@@ -168,6 +178,9 @@
                                         </div>
                                     </div>
                                 </form>
+                                <div id="msg_exame">
+                                    
+                                </div>
                                 <button type="submit" class="btn btn-primary" id="cadastrarexame" onclick="cadastrarExame('minhaVariavel')">Cadastrar</button>
                             </div>
                         </div>

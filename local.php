@@ -21,6 +21,9 @@
 
                 </tbody>
             </table>
+            <div id="msg_delete">
+                <!-- MENSAGEM DE RETORNO DELETE -->
+            </div>
             <button class="btn btn-success btn-sm ml-2 mb-5" data-toggle="collapse" data-target="#collapseExample">Adicionar novo local</button>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
@@ -51,6 +54,9 @@
                                 </div>
                             </div>
                         </form>
+                        <div id="msg_cadastro">
+                            <!-- MENSAGEM DE RETORNO CADASTRO -->
+                        </div>
                         <button type="submit" class="btn btn-primary" id="cadastrarLocal" onclick="cadastrarLocal('minhaVariavel');">Cadastrar</button>
                     </div>
                 </div>
