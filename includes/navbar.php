@@ -16,7 +16,7 @@
                     <a class="nav-item nav-link ml-5" href="#">Sua conta
                         <span class="sr-only">(current)</span>
                     </a>
-                    <a class="nav-item nav-link" href="inicial.html">Seus animais</a>
+                    <a class="nav-item nav-link" href="javascript:void(0)" onclick="animal('minhaVariavel');">Seus animais</a>
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="cve('minhaVariavel');">Consulta/Vacina/Exame</a>
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="higiene('minhaVariavel');">Higiene</a>
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="medicamento('minhaVariavel');">Medicamento</a>
