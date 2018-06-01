@@ -6,7 +6,7 @@ $("#cadastrar").click(function (e) {
     var email = $("#email").val();
     var senha = $("#senha").val();
 
-    var markers = {"nome": nome, "email":email, "senha":senha };
+    var markers = { "nome": nome, "email": email, "senha": senha };
     $.ajax({
         type: "POST",
         url: 'http://localhost/git1/pessoas',
@@ -14,24 +14,20 @@ $("#cadastrar").click(function (e) {
         data: JSON.stringify(markers),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: success(),
+        success: function (data) {
+            success();
+        },
         failure: function (errMsg) {
-            alert(errMsg);
+            error();
         }
     });
 
 });
 
-function success(){
-    alert('Usuário cadastrado com sucesso!');
-    window.location.replace("http://localhost/mypetlife");
-}
-
-
 $("#login").click(function (e) {
     var email = $("#email").val();
     var senha = $("#senha").val();
-    
+
     $.ajax(
         {
             dataType: 'json',
@@ -40,19 +36,40 @@ $("#login").click(function (e) {
                 "Access-Control-Allow-Origin": "*"
             },
             type: 'GET',
-            url: 'http://localhost/git1/pessoas/'+ email,
+            url: 'http://localhost/git1/pessoas/' + email,
             success: function (data) {
                 //$('.test').append(data.nome);
-                if(senha == data.senha && email == data.email){
-                    window.location.replace("http://localhost/mypetlife/inicial.html?minhaVariavel="+data.cod_dono);
+                if (senha == data.senha && email == data.email) {
+                    window.location.replace("http://localhost/mypetlife/inicial.php?minhaVariavel=" + data.cod_dono);
                     var dados = 'leonardo';
-                    sessionStorage.setItem('chave', dados );
+                    sessionStorage.setItem('chave', dados);
                 } else {
-                    alert('Email ou senha inválida!');
+                    erro_user();
                 }
             },
             error: function (data) {
-                alert('Ocorreu algum erro. Tente logar novamente mais tarde!');
+                erro_login();
             }
         });
 });
+
+
+function success() {
+    var sucesso = "<div class='alerta alert alert-success' role='alert'>Cadastro realizado com sucesso! <a href='index.php'>Clique aqui para logar</a></div>";
+    $("#msg_cadastro").append(sucesso);
+}
+
+function error() {
+    var error = "<div class='alerta alert alert-danger' role='alert'>Erro ao realizar o cadastro! <a href='index.php'>Clique aqui para logar</a></div>";
+    $("#msg_cadastro").append(error);
+}
+
+function erro_user(){
+    var error = "<div class='alerta alert alert-danger' role='alert'><center>Email ou senha inválida!</center></div>";
+    $("#msg_login").append(error);
+}
+
+function erro_login(){
+    var error = "<div class='alerta alert alert-danger' role='alert'>Ocorreu um erro, tente novamente mais tarde!</div>";
+    $("#msg_login").append(error);
+}

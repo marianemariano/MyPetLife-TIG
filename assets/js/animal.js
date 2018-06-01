@@ -37,9 +37,6 @@ function listarAnimal(codigo_dono) {
                         if (codigo_dono == cliente.cod_dono) {
                             var item = "<tr><td id='nomelista'>" + cliente.nome + "</td> <td>" + cliente.tipo + "</td> <td>" + cliente.sexo + "</td> <td><button class='fudeu btn btn-primary btn-sm' onclick='selecionarAnimal(" + cliente.cod_animal + ");'>selecionar animal</button></td><td><button class='btn btn-danger btn-sm' onclick='deleteanimal(" + cliente.cod_animal + ");'>Deletar animal</button></td></tr> ";
                             $("#test").append(item);
-                            var espera = $(".fudeu").val();
-                            console.log(espera);
-
                         }
                     });
                 },
@@ -88,9 +85,9 @@ function cadastrar_animal(cod_dono) {
         data: JSON.stringify(markers),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (data) { alert("animal cadastrado com sucesso"); },
+        success: function (data) { sucesso_cadastro(); },
         failure: function (errMsg) {
-            alert("Não foi possível cadastrar um novo animal!");
+            erro_cadastro();
         }
     });
 }
@@ -100,7 +97,6 @@ function cadastrar_animal(cod_dono) {
 //DELETAR ANIMAIS NO BANCO
 function deleteanimal(cod_animal) {
     var cod = cod_animal;
-    alert(cod);
     $.ajax(
         {
             dataType: 'json',
@@ -111,10 +107,10 @@ function deleteanimal(cod_animal) {
             type: 'DELETE',
             url: 'http://localhost/git1/animal/' + cod,
             success: function (data) {
-                alert("animal deletado");
+                sucesso_delete();
             },
             error: function (data) {
-                alert("error");
+                erro_delete();
             }
         });
 }

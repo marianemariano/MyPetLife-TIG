@@ -11,6 +11,11 @@
         crossorigin="anonymous">
     <title>MyPetLife</title>
     <style>
+        #msg_delete{
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
         .nav-item {
             color: #1976d2 !important;
         }
@@ -36,60 +41,66 @@
                     <a class="nav-item nav-link ml-5" href="#">Sua conta
                         <span class="sr-only">(current)</span>
                     </a>
-                    <a class="nav-item nav-link" href="inicial.html">Seus animais</a>
+                    <a class="nav-item nav-link" href="index.php"><button class="btn btn-outline-primary btn-sm">Sair</button></a>
                 </div>
             </div>
         </nav>
+        <center>
+            <div class="container-fluid">
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Sexo</th>
+                                <th scope="col">Selecionar</th>
+                                <th scope="col">Deletar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="test">
 
-        <div class="container-fluid">
-            <div class="row">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Sexo</th>
-                            <th scope="col">Selecionar</th>
-                            <th scope="col">Deletar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="test">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="msg_delete">
 
-                    </tbody>
-                </table>
-                <button class="btn btn-success btn-sm ml-2 mb-5" data-toggle="collapse" data-target="#collapseExample">Adicionar novo animal</button>
             </div>
-        </div>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-               <div class="container">
-                <form>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="inputEmail4">Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="nome">
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="inputPassword4">Tipo</label>
-                        <input type="text" class="form-control" id="tipo" placeholder="cachorro, gato">
-                      </div>
+            <button class="btn btn-success btn-sm ml-2 mb-5" data-toggle="collapse" data-target="#collapseExample">Adicionar novo animal</button>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <div class="container">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Nome</label>
+                                    <input type="text" class="form-control" id="nome" placeholder="nome">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Tipo</label>
+                                    <input type="text" class="form-control" id="tipo" placeholder="cachorro, gato">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAddress">nascimento</label>
+                                <input type="date" class="form-control" id="nascimento" placeholder="dd/mm/aaaa">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAddress2">Raça</label>
+                                <input type="text" class="form-control" id="raca" placeholder="Vira-lata">
+                            </div>
+
+                        </form>
+                        <div id="msg_cadastro">
+
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="cadastraranimal" onclick="return cadastraranimal('minhaVariavel')">Cadastrar</button>
                     </div>
-                    <div class="form-group">
-                      <label for="inputAddress">nascimento</label>
-                      <input type="date" class="form-control" id="nascimento" placeholder="dd/mm/aaaa">
-                    </div>
-                    <div class="form-group">
-                      <label for="inputAddress2">Raça</label>
-                      <input type="text" class="form-control" id="raca" placeholder="Vira-lata">
-                    </div>
-                    
-                  </form>
-                  <button type="submit" class="btn btn-primary" id="cadastraranimal" onclick="return cadastraranimal('minhaVariavel')">Cadastrar</button>
-               </div>
+                </div>
             </div>
-        </div>
     </div>
-
+    </center>
     <center>
         <p style="color:white">&copy - Todos os direitos reservados. MyPetLife 2018</p>
     </center>
@@ -99,13 +110,11 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="assets/js/animal.js"></script>
+    <script src="assets/js/navbar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
-
-
-
 </body>
 
 </html>

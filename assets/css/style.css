@@ -23,3 +23,7 @@ nav ul li{
 .sidebar .nav-link.active {
     color: #007bff;
 }
+
+.alerta{
+    padding: .45rem 1.25rem !important;
+}

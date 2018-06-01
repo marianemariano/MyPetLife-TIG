@@ -35,17 +35,15 @@
                 <input type="password" class="form-control form-control-sm" id="senha" style="border-radius:5px;" placeholder="sua senha">
             </div>
         </form>
-        <button type="button" class="btn btn-primary btn-sm" id="login" style="margin-right:5%;margin-left:5%">Entrar </button>
-        <center>
-            <small style="margin-bottom:10px" class="form-text form-text-muted ">
-                <a href="#">Esqueceu a sua senha ?</a>
-            </small>
-        </center>
+        <button type="button" class="btn btn-primary btn-sm mb-3" id="login" style="margin-right:5%;margin-left:5%">Entrar </button>
+        <div id="msg_login" class="ml-3 mr-3 mb-3">
+            <!--MENSAGEM DE ERRO AO LOGAR-->
+        </div>
     </div>
     <div class="card mx-auto" style="width: 20rem; margin-top:5px;padding-top:5px;padding-bottom:8px;">
         <center>
             <small class="form-text form-text-muted ">Novo no MyPetLife ?
-                <a href="cadastro_usuario.html">Crie uma conta</a>
+                <a href="cadastro_usuario.php">Crie uma conta</a>
             </small>
         </center>
     </div>
