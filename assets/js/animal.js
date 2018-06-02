@@ -35,7 +35,7 @@ function listarAnimal(codigo_dono) {
                     // Listando cada cliente encontrado na lista
                     $.each(clientes, function (i, cliente) {
                         if (codigo_dono == cliente.cod_dono) {
-                            var item = "<tr><td id='nomelista'>" + cliente.nome + "</td> <td>" + cliente.tipo + "</td> <td>" + cliente.sexo + "</td> <td><button class='fudeu btn btn-primary btn-sm' onclick='selecionarAnimal(" + cliente.cod_animal +","+cliente.cod_dono+ ");'>selecionar animal</button></td><td><button class='btn btn-danger btn-sm' onclick='deleteanimal(" + cliente.cod_animal + ");'>Deletar animal</button></td></tr> ";
+                            var item = "<tr><td id='nomelista'>" + cliente.nome + "</td> <td>" + cliente.tipo + "</td> <td>" + cliente.sexo + "</td> <td><button class='fudeu btn btn-primary btn-sm' onclick='selecionarAnimal(" + cliente.cod_animal+ ");'>selecionar animal</button></td><td><button class='btn btn-danger btn-sm' onclick='deleteanimal(" + cliente.cod_animal + ");'>Deletar animal</button></td></tr> ";
                             $("#test").append(item);
                         }
                     });
@@ -119,6 +119,6 @@ function deleteanimal(cod_animal) {
 
 //SELECIONAR ANIMAL
 
-function selecionarAnimal(cod_animal, cod_dono){
-    window.location.replace("http://localhost/mypetlife/cve.php?minhaVariavel="+cod_animal+"&nodo="+cod_dono);
+function selecionarAnimal(cod_animal){
+    window.location.replace("http://localhost/mypetlife/cve.php?minhaVariavel="+cod_animal);
 }

@@ -41,28 +41,19 @@ function animal(cod_animal) {
 
 function animais(cod_animal){
     var cod = cod_animal;
-    $.ajax(
-        {
+    $(document).ready(function () {
+        $.ajax({
             dataType: 'json',
             headers: {
                 Accept: "application/json",
                 "Access-Control-Allow-Origin": "*"
             },
             type: 'GET',
-            url: 'http://localhost/git1/animal',
-            success: function (data) {
-                var clientes = data;
-                // Listando cada cliente encontrado na lista
-                $.each(clientes, function (i, cliente) {
-                    if (cod == cliente.cod_dono) {
-                        alert(cliente.cod_dono);
-                    }
-                });
-            },
-            error: function (data) {
-                alert("error");
-            }
+            url: "http://localhost/git1/controle/"+cod
+        }).then(function (data) {
+            window.location.replace("http://localhost/mypetlife/inicial.php?minhaVariavel=" + data.cod_dono);
         });
+    });
 }
 
 
