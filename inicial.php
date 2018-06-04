@@ -11,7 +11,7 @@
         crossorigin="anonymous">
     <title>MyPetLife</title>
     <style>
-        #msg_delete{
+        #msg_delete {
             margin-left: 1%;
             margin-right: 1%;
         }
@@ -38,10 +38,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link ml-5" href="#">Sua conta
+                    <a class="nav-item nav-link ml-5" href="javascript:void(0)" onclick="perfil_usuarios('minhaVariavel');">Sua conta
                         <span class="sr-only">(current)</span>
                     </a>
-                    <a class="nav-item nav-link" href="index.php"><button class="btn btn-outline-primary btn-sm">Sair</button></a>
+                    <a class="nav-item nav-link" href="index.php">
+                        <button class="btn btn-outline-primary btn-sm">Sair</button>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -53,7 +55,9 @@
                             <tr>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Tipo</th>
+                                <th scope="col">Nascimento</th>
                                 <th scope="col">Sexo</th>
+                                <th scope="col">Raça</th>
                                 <th scope="col">Selecionar</th>
                                 <th scope="col">Deletar</th>
                             </tr>
@@ -82,9 +86,15 @@
                                     <input type="text" class="form-control" id="tipo" placeholder="cachorro, gato">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="inputAddress">nascimento</label>
-                                <input type="date" class="form-control" id="nascimento" placeholder="dd/mm/aaaa">
+                            <div class="form-group form-row">
+                                <div class="col">
+                                    <label for="inputAddress">nascimento</label>
+                                    <input type="date" class="form-control" id="nascimento" placeholder="dd/mm/aaaa">
+                                </div>
+                                <div class="col">
+                                    <label for="inputAddress">Sexo</label>
+                                    <input type="text" class="form-control" id="sexo">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">Raça</label>

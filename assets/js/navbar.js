@@ -56,6 +56,43 @@ function animais(cod_animal){
     });
 }
 
+function perfil(cod_animal) {
+    var loc = location.search.substring(1, location.search.length);
+    var param_value = false;
+    var params = loc.split("&");
+    for (i = 0; i < params.length; i++) {
+        var parameter = 'minhaVariavel';
+        param_name = params[i].substring(0, params[i].indexOf('='));
+        if (param_name == parameter) {
+            param_value = params[i].substring(params[i].indexOf('=') + 1);
+        }
+    }
+    if (param_value) {
+        return perfil_usuario(param_value);
+    }
+    else {
+        return undefined;
+    }
+
+}
+
+function perfil_usuario(cod_animal){
+    var cod = cod_animal;
+    $(document).ready(function () {
+        $.ajax({
+            dataType: 'json',
+            headers: {
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
+            type: 'GET',
+            url: "http://localhost/git1/controle/"+cod
+        }).then(function (data) {
+            window.location.replace("http://localhost/mypetlife/perfil.php?minhaVariavel=" + data.cod_dono);
+        });
+    });
+}
+
 
 function higiene(cod_animal) {
     var loc = location.search.substring(1, location.search.length);

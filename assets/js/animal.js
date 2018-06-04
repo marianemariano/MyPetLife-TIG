@@ -35,7 +35,7 @@ function listarAnimal(codigo_dono) {
                     // Listando cada cliente encontrado na lista
                     $.each(clientes, function (i, cliente) {
                         if (codigo_dono == cliente.cod_dono) {
-                            var item = "<tr><td id='nomelista'>" + cliente.nome + "</td> <td>" + cliente.tipo + "</td> <td>" + cliente.sexo + "</td> <td><button class='fudeu btn btn-primary btn-sm' onclick='selecionarAnimal(" + cliente.cod_animal+ ");'>selecionar animal</button></td><td><button class='btn btn-danger btn-sm' onclick='deleteanimal(" + cliente.cod_animal + ");'>Deletar animal</button></td></tr> ";
+                            var item = "<tr><td id='nomelista'>" + cliente.nome + "</td> <td>" + cliente.tipo + "</td> <td>" + cliente.nascimento + "</td> <td>" + cliente.sexo + "</td> <td>" + cliente.raca + "</td> <td><button class='fudeu btn btn-primary btn-sm' onclick='selecionarAnimal(" + cliente.cod_animal+ ");'>selecionar animal</button></td><td><button class='btn btn-danger btn-sm' onclick='deleteanimal(" + cliente.cod_animal + ");'>Deletar animal</button></td></tr> ";
                             $("#test").append(item);
                         }
                     });
@@ -121,4 +121,30 @@ function deleteanimal(cod_animal) {
 
 function selecionarAnimal(cod_animal){
     window.location.replace("http://localhost/mypetlife/cve.php?minhaVariavel="+cod_animal);
+}
+
+
+
+
+function perfil_usuarios(parameter) {
+    var loc = location.search.substring(1, location.search.length);
+    var param_value = false;
+    var params = loc.split("&");
+    for (i = 0; i < params.length; i++) {
+        param_name = params[i].substring(0, params[i].indexOf('='));
+        if (param_name == parameter) {
+            param_value = params[i].substring(params[i].indexOf('=') + 1)
+        }
+    }
+    if (param_value) {
+        return perfil_usuario(param_value);
+    }
+    else {
+        return undefined;
+    }
+}
+
+
+function perfil_usuario(cod_dono){
+    return window.location.replace("http://localhost/mypetlife/perfil.php?minhaVariavel="+cod_dono);
 }

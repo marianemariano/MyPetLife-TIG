@@ -63,12 +63,22 @@ function editarPerfil(cod_dono) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) { 
-            alert('alterado com sucesso');
+            sucesso_alterar();
         },
         failure: function (errMsg) {
-            alert(errMsg);
+            erro_alterar();
         }
     });
+}
+
+function sucesso_alterar() {
+    var sucesso = "<div class='alert alert-success' role='alert'>Perfil alterado com sucesso! <a href='javascript:void(0)' onclick='refresh();'>Clique aqui para atualizar a tela</a></div>";
+    $("#msg_perfil").append(sucesso);
+}
+
+function erro_alterar() {
+    var sucesso = "<div class='alert alert-danger' role='alert'>Não foi possível alterar o seu perfil!</div>";
+    $("#msg_perfil").append(sucesso);
 }
 //FIM ALTERAR PERFIL
 
@@ -92,8 +102,36 @@ function deletarPerfil(cod_dono) {
                 window.location.replace("http://localhost/mypetlife");
             },
             error: function (data) {
-                erro_delete();
+                erro_delete_perfil();
             }
         });
 }
+
+function erro_delete_perfil() {
+    var sucesso = "<div class='alert alert-danger' role='alert'>Não foi possível deletar o seu perfil!</div>";
+    $("#msg_perfil").append(sucesso);
+}
 //FIM DELETAR PERFIL
+
+function animais_usuarios(parameter) {
+    var loc = location.search.substring(1, location.search.length);
+    var param_value = false;
+    var params = loc.split("&");
+    for (i = 0; i < params.length; i++) {
+        param_name = params[i].substring(0, params[i].indexOf('='));
+        if (param_name == parameter) {
+            param_value = params[i].substring(params[i].indexOf('=') + 1)
+        }
+    }
+    if (param_value) {
+        return animal_usuario(param_value);
+    }
+    else {
+        return undefined;
+    }
+}
+
+
+function animal_usuario(cod_dono){
+    return window.location.replace("http://localhost/mypetlife/inicial.php?minhaVariavel="+cod_dono);
+}

@@ -31,37 +31,29 @@
                 <div class="container">
                     <form>
                         <div class="form-row">
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-4">
                                 <label for="inputEmail4">Nome da cirurgia</label>
                                 <input type="text" class="form-control" id="nome_cirurgia">
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-4">
                                 <label for="inputPassword4">Data da cirurgia</label>
                                 <input type="date" class="form-control" id="data_cirurgia">
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-4">
                                 <label for="inputEmail4">Complicações</label>
                                 <input type="text" class="form-control" id="complicacoes_cirurgia">
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputPassword4">Local</label>
-                                <input type="text" class="form-control" id="local_cirurgia">
-                            </div>
                         </div>
                         <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail4">Médico</label>
-                            <input type="text" class="form-control" id="medico_cirurgia">
-                        </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label for="inputPassword4">Valor</label>
                             <input type="number" class="form-control" id="valor_cirurgia">
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label for="inputEmail4">Cuidados</label>
                             <input type="text" class="form-control" id="cuidados_cirurgia">
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label for="inputPassword4">Observações</label>
                             <input type="text" class="form-control" id="obs_cirurgia">
                         </div>

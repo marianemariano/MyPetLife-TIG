@@ -42,7 +42,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link ml-5" href="#">Seus animais
+                    <a class="nav-item nav-link ml-5" href="javascript:void(0)" onclick="animais_usuarios('minhaVariavel');">Seus animais
                         <span class="sr-only">(current)</span>
                     </a>
                     <a class="nav-item nav-link" href="index.php">
@@ -54,10 +54,18 @@
         <center id="form_perfil">
         
         </center>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <center id="msg_perfil">
+                        
+                    </center>
+                </div>
+            </div>
+        </div>
         <center>
             <p style="color:white">&copy - Todos os direitos reservados. MyPetLife 2018</p>
         </center>
-        <ul id="listaClientes"></ul>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>

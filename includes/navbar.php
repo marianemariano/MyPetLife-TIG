@@ -13,7 +13,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link ml-5" href="#">Sua conta
+                    <a class="nav-item nav-link ml-5" href="javascript:void(0)" onclick="perfil('minhaVariavel');">Sua conta
                         <span class="sr-only">(current)</span>
                     </a>
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="animal('minhaVariavel');">Seus animais</a>
@@ -24,6 +24,7 @@
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="cirurgia('minhaVariavel');">Cirurgia</a>
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="pulgas('minhaVariavel');">Pulgas e vermifugos</a>
                     <a class="nav-item nav-link" href="javascript:void(0)" onclick="medico('minhaVariavel');">Medico</a>
+                    <a class="nav-item nav-link" href="index.php"><button class="btn btn-outline-primary btn-sm">Sair</button></a>
                 </div>
             </div>
         </nav>
