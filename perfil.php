@@ -19,6 +19,10 @@
         .nav-item {
             color: #1976d2 !important;
         }
+
+        .form-perfil{
+            margin: 0% 15% 0% 15%;
+        }
     </style>
 </head>
 
@@ -47,10 +51,8 @@
                 </div>
             </div>
         </nav>
-        <center>
-            <form action="" style="margin: 0% 15% 0% 15%" id="form_perfil">
-                
-            </form>
+        <center id="form_perfil">
+        
         </center>
         <center>
             <p style="color:white">&copy - Todos os direitos reservados. MyPetLife 2018</p>
