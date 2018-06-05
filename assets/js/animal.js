@@ -137,7 +137,7 @@ function perfil_usuarios(parameter) {
         }
     }
     if (param_value) {
-        return perfil_usuario(param_value);
+        return perfil_usuario_2(param_value);
     }
     else {
         return undefined;
@@ -145,6 +145,7 @@ function perfil_usuarios(parameter) {
 }
 
 
-function perfil_usuario(cod_dono){
-    return window.location.replace("http://localhost/mypetlife/perfil.php?minhaVariavel="+cod_dono);
+function perfil_usuario_2(cod_dono){
+    var dono = cod_dono;
+    return window.location.replace("http://localhost/mypetlife/perfil.php?minhaVariavel="+dono);
 }
